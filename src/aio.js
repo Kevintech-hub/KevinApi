@@ -1,8 +1,8 @@
-import instagramDownloader from "./ig.js";
-import scrapePinterest from "./pindl.js";
-import ytdl, { Youtube } from "./ytdl.js";
-import axios from "axios";
-import * as cheerio from "cheerio";
+const instagramDownloader = require("./ig.js");
+const scrapePinterest = require("./pindl.js");
+const { Youtube } = require("./ytdl.js");
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 const PLATFORM_DETECT = [
   { key: "instagram", patterns: ["instagram.com"] },
@@ -115,7 +115,7 @@ async function handleTiktok(url) {
 }
 
 async function handleFacebook(url) {
-  const { fbdown } = await import("btch-downloader");
+  const { fbdown } = require("btch-downloader");
   const data = await fbdown(url);
   if (!data?.status) throw new Error("Facebook API returned no data");
   const videoUrl = data.HD || data.Normal_video;
@@ -144,7 +144,7 @@ async function handlePinterest(url) {
 }
 
 async function handleCapcut(url) {
-  const { capcut } = await import("btch-downloader");
+  const { capcut } = require("btch-downloader");
   const data = await capcut(url);
   if (!data?.status || !data?.originalVideoUrl)
     throw new Error("No CapCut video");
@@ -253,4 +253,4 @@ async function aiodl(url) {
   }
 }
 
-export { aiodl, detectPlatform };
+module.exports = { aiodl, detectPlatform };
