@@ -33,9 +33,7 @@ const { ytdl, Youtube, fallbackToMp3Buffer } = require("./src/ytdl.js");
 const { upload: hdUpload, get: hdGetStatus } = require("./src/hd.js");
 const videoEnhancer = require("./src/hdvid.js");
 const { createEnhanceTask, pollEnhanceTask } = require("./src/hdvid.js");
-const { Img2Img } = require("./src/img2img.js");
 const imgToPrompt = require("./src/img2prompt.js");
-const uploadImage = require("./src/imgdrop.js");
 const ImgUpscaler = require("./src/imglarger.js");
 const { pixa: removeBackground } = require("./src/removebackground.js");
 const unrestrictedAiImage = require("./src/txt2img.js");
@@ -44,7 +42,6 @@ const upscaler = require("./src/upscaler.js");
 const videyUpload = require("./src/videy.js");
 
 // Information & Scrapers
-const scrapeHokCharacter = require("./src/hokinfo.js");
 const scrapeWutheringWavesCharacter = require("./src/wwchar.js");
 const wallpaperSearch = require("./src/wallpapersearch.js");
 
@@ -103,9 +100,7 @@ const API_KEV = {
   videoEnhancer,
   createEnhanceTask,
   pollEnhanceTask,
-  Img2Img,
   imgToPrompt,
-  uploadImage,
   ImgUpscaler,
   removeBackground,
   unrestrictedAiImage,
@@ -114,7 +109,6 @@ const API_KEV = {
   videyUpload,
   
   // Info
-  scrapeHokCharacter,
   scrapeWutheringWavesCharacter,
   wallpaperSearch,
   
@@ -168,16 +162,13 @@ module.exports.hdGetStatus = hdGetStatus;
 module.exports.videoEnhancer = videoEnhancer;
 module.exports.createEnhanceTask = createEnhanceTask;
 module.exports.pollEnhanceTask = pollEnhanceTask;
-module.exports.Img2Img = Img2Img;
 module.exports.imgToPrompt = imgToPrompt;
-module.exports.uploadImage = uploadImage;
 module.exports.ImgUpscaler = ImgUpscaler;
 module.exports.removeBackground = removeBackground;
 module.exports.unrestrictedAiImage = unrestrictedAiImage;
 module.exports.Txt2Img2 = Txt2Img2;
 module.exports.upscaler = upscaler;
 module.exports.videyUpload = videyUpload;
-module.exports.scrapeHokCharacter = scrapeHokCharacter;
 module.exports.scrapeWutheringWavesCharacter = scrapeWutheringWavesCharacter;
 module.exports.wallpaperSearch = wallpaperSearch;
 module.exports.TempMailCreate = TempMailCreate;
