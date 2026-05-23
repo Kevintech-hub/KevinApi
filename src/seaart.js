@@ -1,4 +1,4 @@
-import config from "../../config.js";
+const config = require("../../config.js");
 
 const OBS_KEY = config.APIkey.obscura;
 
@@ -52,4 +52,4 @@ async function fluxImage(message, ratio = "1:1") {
   return data.result;
 }
 
-export { live3d, fluxImage };
+module.exports = { live3d, fluxImage };

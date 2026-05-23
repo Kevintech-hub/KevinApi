@@ -1,6 +1,7 @@
-  const { default: axios } = await import('axios')
-import FormData from 'form-data'
-import fs from 'fs'
+const axios = require("axios");
+const FormData = require("form-data");
+const fs = require("fs");
+
 async function upload(filePath) {
   const form = new FormData();
   form.append("file", fs.createReadStream(filePath));
@@ -60,4 +61,4 @@ async function get(code) {
   return data.data;
 }
 
-export { upload, get }
+module.exports = { upload, get };

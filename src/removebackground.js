@@ -1,9 +1,10 @@
-import fs from 'fs'
+const fs = require('fs');
+
 async function pixa(img) {
-  const form = new FormData()
-  form.append('image', new Blob([fs.readFileSync(img)], { type: 'image/jpeg' }), img.split('/').pop())
-  form.append('format', 'png')
-  form.append('model', 'v1')
+  const form = new FormData();
+  form.append('image', new Blob([fs.readFileSync(img)], { type: 'image/jpeg' }), img.split('/').pop());
+  form.append('format', 'png');
+  form.append('model', 'v1');
 
   const res = await fetch('https://api2.pixelcut.app/image/matte/v1', {
     method: 'POST',
@@ -23,9 +24,9 @@ async function pixa(img) {
       'accept-language': 'id-ID,id;q=0.9,en-AU;q=0.8,en;q=0.7,en-US;q=0.6'
     },
     body: form
-  })
+  });
 
-  return Buffer.from(await res.arrayBuffer())
+  return Buffer.from(await res.arrayBuffer());
 }
 
-export { pixa }
+module.exports = { pixa };

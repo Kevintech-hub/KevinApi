@@ -1,5 +1,5 @@
-import axios from "axios";
-import crypto from "crypto";
+const axios = require("axios");
+const crypto = require("crypto");
 
 const CONFIG = {
   secretKeyHex:
@@ -149,4 +149,4 @@ async function instagramDownloader(url) {
     : formatPostResult(data);
 }
 
-export default instagramDownloader;
+module.exports = instagramDownloader;

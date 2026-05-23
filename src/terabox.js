@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require("axios");
 
 const CONFIG = {
   base: "https://flowvideoplayer.com",
@@ -60,4 +60,4 @@ async function TeraBoxDL(url) {
   }
 }
 
-export { TeraBoxDL };
+module.exports = { TeraBoxDL };

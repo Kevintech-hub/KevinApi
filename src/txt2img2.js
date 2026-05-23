@@ -1,5 +1,5 @@
-import axios from "axios";
-import crypto from "node:crypto";
+const axios = require("axios");
+const crypto = require("node:crypto");
 
 const UPSAMPLER_URL = "https://upsampler.com/free-image-generator-no-signup";
 const SPACE_URL = "https://black-forest-labs-flux-2-klein-4b.hf.space";
@@ -194,4 +194,4 @@ async function Txt2Img2(prompt) {
   }
 }
 
-export { Txt2Img2 };
+module.exports = { Txt2Img2 };

@@ -1,5 +1,6 @@
-import axios from 'axios'
-import fs from 'fs'
+const axios = require('axios');
+const fs = require('fs');
+
 async function imgtoprompt(media){
   try{
     const base64 = fs.readFileSync(media).toString('base64')
@@ -31,4 +32,4 @@ async function imgtoprompt(media){
   }
 }
 
-export default imgtoprompt
+module.exports = imgtoprompt;

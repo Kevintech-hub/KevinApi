@@ -1,5 +1,5 @@
-import axios from "axios"
-import crypto from "crypto"
+const axios = require("axios");
+const crypto = require("crypto");
 
 function generateCfToken() {
   return [
@@ -116,4 +116,4 @@ async function x2twitterDl(url) {
   }
 }
 
-export default x2twitterDl;
+module.exports = x2twitterDl;

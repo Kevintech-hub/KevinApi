@@ -1,5 +1,6 @@
-import axios from "axios";
-import qs from "qs";
+const axios = require("axios");
+const qs = require("qs");
+
 const headers = {
   "User-Agent":
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -97,64 +98,4 @@ async function scrapePinterest(pinUrl) {
   }
 }
 
-export default scrapePinterest;
-// useage
-// const url = 'https://id.pinterest.com/pin/87186942777228203/';
-
-// scrapePinterest(url).then(res => {
-//   if (res) {
-//     console.log(JSON.stringify(res, null, 2));
-//   }
-// });
-// /* respon
-// {
-//   "title": "heyeeog's Media",
-//   "description": "-",
-//   "author": {
-//     "name": "H",
-//     "username": "heyeeog",
-//     "avatar": "https://s15.mcontent.app/v3/v/image/87187080194607525/87187080194607525/332c572b8c60be6f9e8ab9fd43b61aa5.jpg?token=1767599492ea8665974d03f7b699e59d60b56aa13e"
-//   },
-//   "stats": {
-//     "likes": "1K",
-//     "shares": "40K"
-//   },
-//   "media": [
-//     {
-//       "type": "video",
-//       "quality": "HD",
-//       "extension": "MP4",
-//       "size": "2.16 MB",
-//       "url": "https://s15.mcontent.app/v3/videoProcess/87186942777228203/280d107da6300ddd5613860656fd53d6/720p"
-//     },
-//     {
-//       "type": "video",
-//       "quality": "SD (648x1152)",
-//       "extension": "MP4",
-//       "size": "1.66 MB",
-//       "url": "https://s15.mcontent.app/v3/videoProcess/87186942777228203/c974343bf779666b9547b76bf0586c7d/648p"
-//     },
-//     {
-//       "type": "video",
-//       "quality": "SD (486x864)",
-//       "extension": "MP4",
-//       "size": "1.16 MB",
-//       "url": "https://s15.mcontent.app/v3/videoProcess/87186942777228203/02f0e7df39aa43abb41cf3a8925327f9/486p"
-//     },
-//     {
-//       "type": "video",
-//       "quality": "SD (360x640)",
-//       "extension": "MP4",
-//       "size": "760.32 KB",
-//       "url": "https://s15.mcontent.app/v3/videoProcess/87186942777228203/fbc3c1f0361573d1334cdadfe26e8ba4/360p"
-//     },
-//     {
-//       "type": "video",
-//       "quality": "SD (234x416)",
-//       "extension": "MP4",
-//       "size": "394.04 KB",
-//       "url": "https://s15.mcontent.app/v3/videoProcess/87186942777228203/ef58218a30aa8e6842e86b7ec9d8c9e0/234p"
-//     }
-//   ]
-// }
-// */
+module.exports = scrapePinterest;

@@ -1,5 +1,5 @@
-import axios from "axios";
-import * as cheerio from "cheerio";
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 async function RedditDL(redditUrl) {
   const ts = Date.now();
@@ -55,4 +55,4 @@ async function RedditDL(redditUrl) {
   }
 }
 
-export { RedditDL };
+module.exports = { RedditDL };

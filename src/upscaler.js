@@ -1,5 +1,6 @@
-import axios from "axios";
-import fs from "fs";
+const axios = require("axios");
+const fs = require("fs");
+
 async function upscaler(path) {
   try {
     const img = fs.readFileSync(path).toString("base64");
@@ -47,8 +48,8 @@ async function upscaler(path) {
   }
 }
 
-(async () => {
-  console.log(await upscaler("./z.png"));
-})();
+// (async () => {
+//   console.log(await upscaler("./z.png"));
+// })();
 
-export default upscaler;
+module.exports = upscaler;

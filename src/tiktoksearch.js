@@ -1,18 +1,18 @@
-import axios from 'axios'
+const axios = require('axios');
 
-const TTSEARCH_API = 'https://api.azbry.com/api/search/ttsearch?q='
+const TTSEARCH_API = 'https://api.azbry.com/api/search/ttsearch?q=';
 
 function normalizeUrl(url) {
-    if (!url || typeof url !== 'string') return null
-    const matches = url.match(/https?:\/\//g) || []
-    if (matches.length <= 1) return url
-    const lastIndex = url.lastIndexOf('http')
-    return url.slice(lastIndex)
+    if (!url || typeof url !== 'string') return null;
+    const matches = url.match(/https?:\/\//g) || [];
+    if (matches.length <= 1) return url;
+    const lastIndex = url.lastIndexOf('http');
+    return url.slice(lastIndex);
 }
 
 function normalizeNumber(value) {
-    const number = Number(value)
-    return Number.isFinite(number) ? number : 0
+    const number = Number(value);
+    return Number.isFinite(number) ? number : 0;
 }
 
 function normalizeItem(item) {
@@ -33,7 +33,7 @@ function normalizeItem(item) {
             comments: normalizeNumber(item?.stats?.comments),
             shares: normalizeNumber(item?.stats?.shares)
         }
-    }
+    };
 }
 
 async function tiktokSearchVideo(query) {
@@ -42,13 +42,13 @@ async function tiktokSearchVideo(query) {
         headers: {
             'user-agent': 'Mozilla/5.0'
         }
-    })
+    });
 
     if (!data?.status || !Array.isArray(data?.result)) {
-        throw new Error(data?.message || 'TikTok search gagal')
+        throw new Error(data?.message || 'TikTok search gagal');
     }
 
-    return data.result.map(normalizeItem).filter((item) => item.link)
+    return data.result.map(normalizeItem).filter((item) => item.link);
 }
 
-export { tiktokSearchVideo }
+module.exports = { tiktokSearchVideo };

@@ -1,4 +1,5 @@
-import axios from 'axios'
+const axios = require('axios');
+
 async function likee(url){
     try{
         if(!/likee\.video|likee\.com|likee\.video/.test(url)) throw new Error('Invalid url')
@@ -38,4 +39,4 @@ async function likee(url){
     }
 }
 
-export default likee
+module.exports = likee;

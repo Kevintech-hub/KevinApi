@@ -1,5 +1,6 @@
-import axios from 'axios'
-import * as cheerio from 'cheerio'
+const axios = require('axios');
+const cheerio = require('cheerio');
+
 const client = axios.create({
   withCredentials: true,
   headers: {
@@ -61,4 +62,4 @@ async function unrestrictedai(prompt, style = "anime") {
   return img;
 }
 
-export default unrestrictedai
+module.exports = unrestrictedai;

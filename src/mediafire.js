@@ -1,5 +1,5 @@
-import axios from "axios";
-import * as cheerio from "cheerio";
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 const mimeTypes = {
   "7z": "application/x-7z-compressed",
@@ -38,7 +38,7 @@ function getMimeTypeFromUrl(url) {
   return mimeTypes[extension] || "application/octet-stream";
 }
 
-export default async function mediafire(url) {
+async function mediafire(url) {
   const { data: html } = await axios.get(url, {
     timeout: 60000,
     headers: {
@@ -82,3 +82,5 @@ export default async function mediafire(url) {
     },
   };
 }
+
+module.exports = mediafire;

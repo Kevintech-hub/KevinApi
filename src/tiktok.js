@@ -1,5 +1,5 @@
-import axios from "axios";
-import * as cheerio from "cheerio";
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 const YUULABS_API = "https://api.yuulabs.web.id/api/downloader/tiktok?url=";
 const REQUEST_HEADERS = {
@@ -145,4 +145,4 @@ async function ttdown(url) {
   }
 }
 
-export default ttdown;
+module.exports = ttdown;

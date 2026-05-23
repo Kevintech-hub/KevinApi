@@ -1,9 +1,9 @@
-import axios from "axios";
-import FormData from "form-data";
-import fs from "fs";
-import os from "os";
-import path from "path";
-import crypto from "crypto";
+const axios = require("axios");
+const FormData = require("form-data");
+const fs = require("fs");
+const os = require("os");
+const path = require("path");
+const crypto = require("crypto");
 
 const API_URL = "https://fgsi.dpdns.org/api/tools/enchantVideo";
 const DEFAULT_API_KEY = "fgsiapi-20c1605c-6d";
@@ -171,5 +171,6 @@ async function videoenhancer(
   }
 }
 
-export default videoenhancer;
-export { createEnhanceTask, pollEnhanceTask };
+module.exports = videoenhancer;
+module.exports.createEnhanceTask = createEnhanceTask;
+module.exports.pollEnhanceTask = pollEnhanceTask;

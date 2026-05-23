@@ -1,14 +1,15 @@
-import axios from 'axios'
-import FormData from 'form-data'
-import fs from 'fs'
-import path from 'path'
-import crypto from 'crypto'
+const axios = require('axios');
+const FormData = require('form-data');
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+
 async function videy(file){
     try{
-        if(!file) throw new Error('input required')
-        if(!fs.existsSync(file)) throw new Error('file not found')
+        if(!file) throw new Error('input required');
+        if(!fs.existsSync(file)) throw new Error('file not found');
 
-        const form = new FormData()
+        const form = new FormData();
         form.append(
             'file',
             fs.createReadStream(file),
@@ -16,7 +17,7 @@ async function videy(file){
                 filename: path.basename(file),
                 contentType: 'video/mp4'
             }
-        )
+        );
 
         const r = await axios.post(
             'https://videy.co/api/upload?visitorId=' + crypto.randomUUID(),
@@ -32,15 +33,15 @@ async function videy(file){
                 maxBodyLength: Infinity,
                 maxContentLength: Infinity
             }
-        )
+        );
 
         return {
             output:r.data
-        }
+        };
 
     }catch(e){
-        return { status:'error', msg:e.message }
+        return { status:'error', msg:e.message };
     }
 }
 
-export default videy
+module.exports = videy;

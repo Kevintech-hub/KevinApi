@@ -1,6 +1,6 @@
-import axios from "axios";
-import FormData from "form-data";
-import config from "../../config.js";
+const axios = require("axios");
+const FormData = require("form-data");
+const config = require("../../config.js");
 
 const FCSI_API = "https://fgsi.dpdns.org/api/ai/image/img2img";
 
@@ -65,4 +65,4 @@ async function Img2Img(prompt, imageBuffer, filename = "upload.png") {
   return { status: true, prompt, imageUrl, result };
 }
 
-export { Img2Img };
+module.exports = { Img2Img };

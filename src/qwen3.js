@@ -1,4 +1,4 @@
-import crypto from "node:crypto";
+const crypto = require("node:crypto");
 
 const API = "https://api.overchat.ai/v1/chat/completions";
 
@@ -101,4 +101,4 @@ async function Qwen3(prompt, options = {}) {
   return { status: true, code: response.status, model, question: prompt, answer };
 }
 
-export { Qwen3 };
+module.exports = { Qwen3 };

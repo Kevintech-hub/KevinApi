@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require("axios");
 
 const generateRandomIP = () =>
   Array.from({ length: 4 }, () => Math.floor(Math.random() * 255)).join(".");
@@ -44,4 +44,4 @@ async function RedNoteDL(xhsUrl) {
   };
 }
 
-export { RedNoteDL };
+module.exports = { RedNoteDL };

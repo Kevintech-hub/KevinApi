@@ -1,4 +1,5 @@
-import * as cheerio from 'cheerio'
+const cheerio = require('cheerio');
+
 async function scrapeWutheringWavesCharacter(name) {
     if (!name) throw new Error("Nama karakter kosong");
 
@@ -74,4 +75,4 @@ async function scrapeWutheringWavesCharacter(name) {
     };
 }
 
-export default scrapeWutheringWavesCharacter
+module.exports = scrapeWutheringWavesCharacter;

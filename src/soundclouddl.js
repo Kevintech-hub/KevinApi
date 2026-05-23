@@ -1,4 +1,5 @@
-import axios from "axios"
+const axios = require("axios");
+
 async function scdl(url) {
     const base = 'https://convertico.com/';
     const endpoint = base + 'soundcloud-downloader/soundcloud-downloader.php';
@@ -47,4 +48,4 @@ async function scdl(url) {
     }
 }
 
-export default scdl;
+module.exports = scdl;

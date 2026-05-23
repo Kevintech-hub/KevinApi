@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require("axios");
 
 function generateCORS(length = 15) {
   const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -46,4 +46,4 @@ async function TempMailInbox(email) {
   }
 }
 
-export { TempMailCreate, TempMailInbox };
+module.exports = { TempMailCreate, TempMailInbox };

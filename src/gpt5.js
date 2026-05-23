@@ -1,4 +1,4 @@
-import crypto from "node:crypto";
+const crypto = require("node:crypto");
 
 const API = "https://api.overchat.ai/v1/chat/completions";
 
@@ -114,4 +114,4 @@ async function GPT5(prompt, options = {}) {
   };
 }
 
-export { GPT5 };
+module.exports = { GPT5 };

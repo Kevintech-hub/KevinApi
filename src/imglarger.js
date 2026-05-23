@@ -1,7 +1,7 @@
-import axios from "axios";
-import FormData from "form-data";
-import fs from "fs";
-import path from "path";
+const axios = require("axios");
+const FormData = require("form-data");
+const fs = require("fs");
+const path = require("path");
 
 class ImgUpscaler {
   constructor() {
@@ -96,4 +96,4 @@ class ImgUpscaler {
   }
 }
 
-export default ImgUpscaler;
+module.exports = ImgUpscaler;

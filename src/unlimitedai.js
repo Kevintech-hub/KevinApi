@@ -1,4 +1,4 @@
-import crypto from "node:crypto";
+const crypto = require("node:crypto");
 
 const API = "https://app.unlimitedai.chat/api/chat";
 
@@ -160,4 +160,4 @@ async function UnlimitedAI(prompt, character = "ourin-ai") {
   };
 }
 
-export { UnlimitedAI, CHARACTERS };
+module.exports = { UnlimitedAI, CHARACTERS };

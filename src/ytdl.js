@@ -1,9 +1,9 @@
-import axios from "axios";
-import crypto from "crypto";
-import fs from "fs";
-import path from "path";
-import { exec } from "child_process";
-import { promisify } from "util";
+const axios = require("axios");
+const crypto = require("crypto");
+const fs = require("fs");
+const path = require("path");
+const { exec } = require("child_process");
+const { promisify } = require("util");
 
 const YOUTUBE_ID_REGEX =
   /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
@@ -180,5 +180,5 @@ class Youtube {
   }
 }
 
-export { ytdl, Youtube, fallbackToMp3Buffer };
-export default ytdl;
+module.exports = { ytdl, Youtube, fallbackToMp3Buffer };
+module.exports.default = ytdl;
