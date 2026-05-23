@@ -10,7 +10,6 @@ const { UnlimitedAI, CHARACTERS } = require("./src/unlimitedai.js");
 
 // Downloader Modules
 const { aiodl, detectPlatform } = require("./src/aio.js");
-const dramaboxsearch = require("./src/dramabox.js");
 const { GoogleSearch } = require("./src/google.js");
 const instagramDownloader = require("./src/ig.js");
 const likee = require("./src/likee.js");
@@ -77,7 +76,6 @@ const API_KEV = {
   // Downloaders
   aiodl,
   detectPlatform,
-  dramaboxsearch,
   GoogleSearch,
   instagramDownloader,
   likee,
@@ -145,7 +143,6 @@ module.exports.UnlimitedAI = UnlimitedAI;
 module.exports.CHARACTERS = CHARACTERS;
 module.exports.aiodl = aiodl;
 module.exports.detectPlatform = detectPlatform;
-module.exports.dramaboxsearch = dramaboxsearch;
 module.exports.GoogleSearch = GoogleSearch;
 module.exports.instagramDownloader = instagramDownloader;
 module.exports.likee = likee;

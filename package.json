@@ -11,7 +11,6 @@
     },
     "./aio": "./src/aio.js",
     "./deepseek": "./src/deepseek.js",
-    "./dramabox": "./src/dramabox.js",
     "./feeb": "./src/feeb.js",
     "./gemini": "./src/gemini.js",
     "./geminiVision": "./src/geminiVision.js",
