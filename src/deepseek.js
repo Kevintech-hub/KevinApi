@@ -1,5 +1,5 @@
-import axios from "axios";
-import crypto from "node:crypto";
+const axios = require("axios");
+const crypto = require("node:crypto");
 
 const BASE = "https://notegpt.io";
 
@@ -160,4 +160,4 @@ async function DeepSeekThinking(prompt, history = []) {
   });
 }
 
-export { DeepSeekThinking };
+module.exports = { DeepSeekThinking };
