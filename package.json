@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "All-in-one API wrapper for media downloading, AI chat, image processing, and more",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "exports": {
     ".": {
-      "import": "./index.js",
+      "require": "./index.js",
       "default": "./index.js"
     },
     "./aio": "./src/aio.js",
