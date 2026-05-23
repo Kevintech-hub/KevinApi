@@ -1,4 +1,4 @@
-import gemini from "./gemini.js";
+const gemini = require("./gemini.js");
 
 function buildMessage({ message, history = [], imageBuffer = null }) {
   const parts = [];
@@ -49,4 +49,4 @@ async function chat({
   };
 }
 
-export { chat };
+module.exports = { chat };

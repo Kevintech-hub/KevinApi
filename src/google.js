@@ -1,5 +1,5 @@
-import * as cheerio from "cheerio";
-import axios from "axios";
+const cheerio = require("cheerio");
+const axios = require("axios");
 
 const ENGINE_CONFIG = Object.freeze({
   TARGET_HOST: "bmV3cy5nb29nbGUuY29t",
@@ -127,4 +127,4 @@ async function GoogleSearch(query) {
   return kernel.executeQueryPipeline(query);
 }
 
-export { GoogleSearch };
+module.exports = { GoogleSearch };

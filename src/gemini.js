@@ -1,4 +1,5 @@
-import axios from "axios";
+const axios = require("axios");
+
 async function gemini(input = {}) {
   const payload = typeof input === "string" ? { message: input } : input || {};
   const { message, instruction = "", sessionId = null } = payload;
@@ -61,7 +62,6 @@ async function gemini(input = {}) {
       null,
       null,
       null,
-      null,
       [
         "",
         "",
@@ -98,11 +98,11 @@ async function gemini(input = {}) {
       [1],
     ];
 
-    const payload = [null, JSON.stringify(requestBody)];
+    const payloadBody = [null, JSON.stringify(requestBody)];
 
     const { data } = await axios.post(
       "https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate?bl=boq_assistant-bard-web-server_20250729.06_p0&f.sid=4206607810970164620&hl=en-US&_reqid=2813378&rt=c",
-      new URLSearchParams({ "f.req": JSON.stringify(payload) }).toString(),
+      new URLSearchParams({ "f.req": JSON.stringify(payloadBody) }).toString(),
       { 
         headers: {
           "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
@@ -168,5 +168,5 @@ async function gemini(input = {}) {
   }
 }
 
-export { gemini as chat };
-export default gemini;
+module.exports = { chat: gemini };
+module.exports.default = gemini;

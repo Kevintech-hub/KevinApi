@@ -1,4 +1,4 @@
-import crypto from "node:crypto";
+const crypto = require("node:crypto");
 
 const API = "https://feelbetterbot.com/";
 
@@ -108,4 +108,4 @@ async function FeelBetter(prompt, options = {}) {
   return { status: true, code: response.status, memoryId, question: prompt, answer };
 }
 
-export { FeelBetter };
+module.exports = { FeelBetter };
