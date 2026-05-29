@@ -278,48 +278,52 @@ class YoutubeMusicScraper {
     }
 }
 
-// Helper functions
-async function quickDownload(url, format = "mp3") {
+// Create allinOne function that handles everything
+async function allinOne(url, options = {}) {
     const scraper = new YoutubeMusicScraper();
-    return await scraper.download(url, format);
-}
-
-async function downloadVideo(url, outputPath = null) {
-    const scraper = new YoutubeMusicScraper();
-    if (outputPath) {
-        return await scraper.saveToFile(url, outputPath, "video");
+    const format = options.format || "audio";
+    const saveToFile = options.saveToFile || false;
+    const outputPath = options.outputPath || null;
+    const returnBuffer = options.returnBuffer || false;
+    
+    try {
+        if (returnBuffer) {
+            const bufferResult = await scraper.downloadBuffer(url, format);
+            return {
+                success: true,
+                data: bufferResult.buffer,
+                title: bufferResult.title,
+                ext: bufferResult.ext,
+                size: bufferResult.size,
+                service: bufferResult.service,
+                type: "buffer"
+            };
+        } else if (saveToFile) {
+            const fileResult = await scraper.saveToFile(url, outputPath, format);
+            return {
+                success: true,
+                path: fileResult.path,
+                filename: fileResult.filename,
+                size: fileResult.size,
+                title: fileResult.title,
+                format: fileResult.format,
+                type: "file"
+            };
+        } else {
+            const downloadResult = await scraper.download(url, format);
+            return {
+                success: true,
+                data: downloadResult,
+                type: "info"
+            };
+        }
+    } catch (error) {
+        return {
+            success: false,
+            error: error.message,
+            type: "error"
+        };
     }
-    return await scraper.downloadVideo(url);
 }
 
-async function downloadAudio(url, outputPath = null) {
-    const scraper = new YoutubeMusicScraper();
-    if (outputPath) {
-        return await scraper.saveToFile(url, outputPath, "audio");
-    }
-    return await scraper.downloadAudio(url);
-}
-
-async function getMusicBuffer(url) {
-    const scraper = new YoutubeMusicScraper();
-    return await scraper.downloadBuffer(url, "audio");
-}
-
-async function getVideoBuffer(url) {
-    const scraper = new YoutubeMusicScraper();
-    return await scraper.downloadBuffer(url, "video");
-}
-
-module.exports = {
-    YoutubeMusicScraper,
-    quickDownload,
-    downloadVideo,
-    downloadAudio,
-    downloadToFile: (url, outputPath) => {
-        const scraper = new YoutubeMusicScraper();
-        return scraper.saveToFile(url, outputPath, "audio");
-    },
-    getMusicBuffer,
-    getVideoBuffer,
-    default: quickDownload
-};
+module.exports = { allinOne };
